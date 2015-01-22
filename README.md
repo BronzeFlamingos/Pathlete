@@ -27,7 +27,6 @@
 - Node 0.10.x
 - D3.js
 - Firebase
-- Ionic
 
 
 ## Development
