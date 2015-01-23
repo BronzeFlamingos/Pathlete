@@ -7,6 +7,7 @@ var db = require('../public/javascripts/db.js');
 
 
 var db = require('../public/javascripts/db.js');
+var dbHelper = require('../public/javascripts/dbHelpers.js');
 
 
 
@@ -27,25 +28,14 @@ passport.use(new FitbitStrategy({
   callbackURL: url
 },
 function (token, tokenSecret, profile, done) {
-
-  var err = '';
-  db.child('users').child(profile.id).once('value', function (data) {
-    if (data.val() === null){
-      err = 'user not in DB!';
-    }
-    db.child('users').update(profile.id);
-    db.child('users').child(profile.id).set(profile._json.user);
-  });
-  done(err, profile._json.user);
-  next();
-
-    
-));
+  dbHelper.addUser(token, tokenSecret, profile, done);
+  
+}));
 
 
 /* GET home page. */
 router.get('/login', function (req, res, next){
-  req.redirect('auth/fitbit');
+  res.redirect('/auth/fitbit');
 });
 router.get('/auth/fitbit', passport.authenticate('fitbit', {failureRedirect: '/login'}), function (req,res){});
 
