@@ -9,6 +9,7 @@ var db = require('../public/javascripts/db.js');
 var db = require('../public/javascripts/db.js');
 
 
+
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -38,8 +39,6 @@ function (token, tokenSecret, profile, done) {
   done(err, profile._json.user);
   next();
 
-
-}
     
 ));
 
@@ -52,7 +51,7 @@ router.get('/auth/fitbit', passport.authenticate('fitbit', {failureRedirect: '/l
 
 router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
 
- 
+
   res.render('index', { title: 'Express' });
 });
 
