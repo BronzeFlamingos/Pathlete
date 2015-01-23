@@ -3,6 +3,8 @@ var router = express.Router();
 var passport = require('passport');
 var FitbitStrategy = require('passport-fitbit').Strategy;
 var keys = require('../keys.js');
+var db = require('../public/javascripts/db.js');
+
 
 var db = require('../public/javascripts/db.js');
 
@@ -35,6 +37,7 @@ function (token, tokenSecret, profile, done) {
   });
   done(err, profile._json.user);
   next();
+
 
 }
     
