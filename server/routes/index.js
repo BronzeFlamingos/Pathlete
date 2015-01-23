@@ -3,6 +3,7 @@ var router = express.Router();
 var passport = require('passport');
 var FitbitStrategy = require('passport-fitbit').Strategy;
 var keys = require('../keys.js');
+
 var db = require('../public/javascripts/db.js');
 
 
@@ -14,6 +15,7 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
+
 var url = 'http://localhost:1337/auth/fitbit/callback';
 
 passport.use(new FitbitStrategy({
@@ -22,6 +24,7 @@ passport.use(new FitbitStrategy({
   callbackURL: url
 },
 function (token, tokenSecret, profile, done) {
+
   var err = '';
   db.child('users').child(profile.id).once('value', function (data) {
     if (data.val() === null){
@@ -32,6 +35,7 @@ function (token, tokenSecret, profile, done) {
   });
   done(err, profile._json.user);
   next();
+
 }
     
 ));
@@ -45,7 +49,7 @@ router.get('/auth/fitbit', passport.authenticate('fitbit', {failureRedirect: '/l
 
 router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
 
-  //console.log('req!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!: ', req);
+ 
   res.render('index', { title: 'Express' });
 });
 
