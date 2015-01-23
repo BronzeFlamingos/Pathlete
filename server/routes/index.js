@@ -22,13 +22,8 @@ passport.use(new FitbitStrategy({
   callbackURL: url
 },
 function (token, tokenSecret, profile, done) {
-  console.log('token: ', token);
-  console.log('tokenSecret', tokenSecret);
-  console.log('profile', profile);
-  console.log('done:', done);
   var err = '';
   db.child('users').child(profile.id).once('value', function (data) {
-    console.log('DATA!!!!!', data.val());
     if (data.val() === null){
       err = 'user not in DB!';
     }
