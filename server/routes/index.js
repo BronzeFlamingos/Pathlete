@@ -32,8 +32,10 @@ function (token, tokenSecret, profile, done) {
   
 }));
 
-
-/* GET home page. */
+router.get('/logout', function (req, res) {
+  req.logout();
+  res.redirect('/');
+});
 router.get('/login', function (req, res, next){
   res.redirect('/auth/fitbit');
 });
