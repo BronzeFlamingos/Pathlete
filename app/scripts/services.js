@@ -12,8 +12,16 @@ angular.module('pathleteApp.services', [])
     });
   };
 
+  var logout = function(){
+    return $http({
+      method: 'GET',
+      url: '/logout'
+    })
+  }
+
   return {
     getInfo: getInfo,
+    logout: logout
   };
 
 });
