@@ -38,6 +38,7 @@ router.get('/login', function (req, res, next){
 router.get('/auth/fitbit', passport.authenticate('fitbit', {failureRedirect: '/login'}), function (req,res){});
 
 router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
+  res.redirect('/');
 });
 
 module.exports = router;
