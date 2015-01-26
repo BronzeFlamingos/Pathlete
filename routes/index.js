@@ -42,4 +42,15 @@ router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRed
   res.redirect('/');
 });
 
+router.get('/fitbitStats', function(req, res) {
+   request("https://api.fitbit.com/1/user/368XCD/activities/date/2015-01-23.json", 
+      function(err, response, body) {
+        if (err) {
+          console.log('error occurred')
+        }
+      console.log('this is body', body)
+      res.send(body);
+    });
+  });
+
 module.exports = router;
