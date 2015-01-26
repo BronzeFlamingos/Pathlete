@@ -3,12 +3,8 @@ var router = express.Router();
 var passport = require('passport');
 var FitbitStrategy = require('passport-fitbit').Strategy;
 var keys = require('../keys.js');
-var db = require('../public/javascripts/db.js');
-
-
-var db = require('../public/javascripts/db.js');
-var dbHelper = require('../public/javascripts/dbHelpers.js');
-
+var db = require('../utils/db.js');
+var dbHelper = require('../utils/dbHelpers.js');
 
 
 passport.serializeUser(function(user, done) {
@@ -42,9 +38,6 @@ router.get('/login', function (req, res, next){
 router.get('/auth/fitbit', passport.authenticate('fitbit', {failureRedirect: '/login'}), function (req,res){});
 
 router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
-
-
-  res.render('index', { title: 'Express' });
 });
 
 module.exports = router;
