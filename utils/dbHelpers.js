@@ -17,7 +17,6 @@ module.exports = {
       user.strideWalking = profile._json.user.strideLengthWalking;
       user.units = profile._json.user.distanceUnit;
       db.child('users').push(user);
-      console.log('DONE!!!!!!!!');
       done(err, profile._json.user);
     });
   },
