@@ -30,8 +30,7 @@
         </ul>
         <h3 class="text-muted">pathlete</h3>
       </div>
-
-      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
+      <div ng-view></div>
 
       <div class="footer">
         <p></p>
@@ -59,6 +58,7 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <!-- endbower -->
