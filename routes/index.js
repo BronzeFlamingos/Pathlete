@@ -3,10 +3,6 @@ var router = express.Router();
 var request = require('request');
 var User = require('../utils/fitbit.js');
 
-
-
-
-
 router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
