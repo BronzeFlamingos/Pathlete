@@ -7,7 +7,6 @@ module.exports = {
     db.child('users').child(profile.id).once('value', function (data) {
       if (data.val() === null){
         var user = {};
-        //user.id = profile.id;
         user.tokenSecret = tokenSecret;
         user.token = token;
         user.name = profile._json.user.fullName;
