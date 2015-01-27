@@ -59,6 +59,19 @@ body {
   margin-top: 28px;
 }
 
+.nopath,
+.path {
+  width: 700px;
+  height: auto;
+  position: absolute;
+}
+
+.pathcontainer {
+  position: relative;
+  height:650px;
+  overflow: hidden;
+}
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
