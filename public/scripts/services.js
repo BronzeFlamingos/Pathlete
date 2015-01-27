@@ -20,7 +20,6 @@ angular.module('pathleteApp.services', [])
   }
 
   var login = function(){
-    console.log('butts');
     return $http({
       method: 'GET',
       url: '/login'

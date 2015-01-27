@@ -15,7 +15,6 @@ app.controller('MainCtrl', function ($scope, $http, Info) {
     ];
 
     $scope.login = function(){
-      console.log("poop");
       Info.login();
     }
 
