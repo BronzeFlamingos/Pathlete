@@ -4,7 +4,7 @@ var passport = require('passport');
 var FitbitStrategy = require('passport-fitbit').Strategy;
 var db = require('../utils/db.js');
 var dbHelper = require('../utils/dbHelpers.js');
-var request = require('request')
+var request = require('request');
 
 
 if (!process.env.CONSUMER_KEY) {
