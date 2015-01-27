@@ -6,18 +6,18 @@ module.exports = {
     var err = '';
     db.child('users').child(profile.id).once('value', function (data) {
       if (data.val() === null){
-        err = 'user not in DB!';
+        var user = {};
+        user.tokenSecret = tokenSecret;
+        user.token = token;
+        user.name = profile._json.user.fullName;
+        user.strideRunning = profile._json.user.strideLengthRunning;
+        user.strideWalking = profile._json.user.strideLengthWalking;
+        user.units = profile._json.user.distanceUnit;
+        db.child('users').child(profile.id).set(user);
+      } else {
+        db.child('users').child(profile.id).update({tokenSecret: tokenSecret, token: token});
       }
-      var user = {};
-      user.id = profile.id;
-      user.tokenSecret = tokenSecret;
-      user.token = token;
-      user.name = profile._json.user.fullName;
-      user.strideRunning = profile._json.user.strideLengthRunning;
-      user.strideWalking = profile._json.user.strideLengthWalking;
-      user.units = profile._json.user.distanceUnit;
-      db.child('users').push(user);
-      console.log('THIS IS USER', user);
+
       done(err, profile._json.user);
       
     });
@@ -28,15 +28,15 @@ module.exports = {
       callbackURL: 'http://localhost:1337/auth/fitbit/callback',
       token: user.token,
       tokenSecret: user.tokenSecret
-    }
+    };
     request.get({url: "https://api.fitbit.com/1/user/" + user.id + "/activities/date/2015-01-23.json",
       oath: oath},
       function(err, response, body) {
         if (err) {
-          console.log('error occurred')
+          console.log('error occurred');
         }
-      console.log('this is body', body)
-    })
+      console.log('this is body', body);
+    });
   },
   addUserStats: function () {
 

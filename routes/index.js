@@ -2,11 +2,16 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var FitbitStrategy = require('passport-fitbit').Strategy;
-var keys = require('../keys.js');
 var db = require('../utils/db.js');
 var dbHelper = require('../utils/dbHelpers.js');
-var request = require('request')
+var request = require('request');
 
+
+if (!process.env.CONSUMER_KEY) {
+  //keys.js conatains the Dev keys from fitbit
+  //this statment makes the app work even if not being deployed
+   var keys = require('../keys.js');
+ } 
 
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -17,11 +22,11 @@ passport.deserializeUser(function(obj, done) {
 });
 
 
-var url = 'http://localhost:1337/auth/fitbit/callback';
+var url = '/auth/fitbit/callback';
 
 passport.use(new FitbitStrategy({
-  consumerKey: keys.consumerKey,
-  consumerSecret: keys.consumerSecret,
+  consumerKey: process.env.CONSUMER_KEY || keys.consumerKey,
+  consumerSecret: process.env.CONSUMER_SECRET || keys.consumerSecret,
   callbackURL: url
 },
 function (token, tokenSecret, profile, done) {
