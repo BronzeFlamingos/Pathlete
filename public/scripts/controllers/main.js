@@ -14,6 +14,11 @@ app.controller('MainCtrl', function ($scope, $http, Info) {
       'Karma'
     ];
 
+    $scope.login = function(){
+      console.log("poop");
+      Info.login();
+    }
+
     //user info
     $scope.userInfo
 
