@@ -45,8 +45,9 @@ router.get('/auth/fitbit', passport.authenticate('fitbit', {failureRedirect: '/l
 
 router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
   //this line will redirect to the proper url after we create it
-  
-  // res.redirect('/stats');
+  dbHelper.getUserStats({id: '368XCD'});
+  res.redirect('/');
+
 });
 
 // router.get('/stats', function(req, res) {

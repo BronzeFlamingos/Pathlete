@@ -1,9 +1,10 @@
 var db = require('./db.js');
-
+var request = require('request');
 
 module.exports = {
   addUser: function (token, tokenSecret, profile, done){
     var err = '';
+    console.log(profile);
     db.child('users').child(profile.id).once('value', function (data) {
       if (data.val() === null){
         var user = {};
@@ -17,20 +18,16 @@ module.exports = {
       } else {
         db.child('users').child(profile.id).update({tokenSecret: tokenSecret, token: token});
       }
-
       done(err, profile._json.user);
-      
     });
-    this.getUserStats(user);
   },
   getUserStats: function (user) {
-    var oath = {
-      callbackURL: 'http://localhost:1337/auth/fitbit/callback',
-      token: user.token,
-      tokenSecret: user.tokenSecret
-    };
-    request.get({url: "https://api.fitbit.com/1/user/" + user.id + "/activities/date/2015-01-23.json",
-      oath: oath},
+    // var oath = {
+    //   callbackURL: '/auth/fitbit/callback',
+    //   token: user.token,
+    //   tokenSecret: user.tokenSecret
+    // };
+    request.get({url: "https://api.fitbit.com/1/user/" + user.id + "/activities/date/2015-01-23.json"},
       function(err, response, body) {
         if (err) {
           console.log('error occurred');
