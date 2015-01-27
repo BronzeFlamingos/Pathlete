@@ -14,6 +14,10 @@ app.controller('MainCtrl', function ($scope, $http, Info) {
       'Karma'
     ];
 
+    $scope.login = function(){
+      Info.login();
+    }
+
     //user info
     $scope.userInfo
 

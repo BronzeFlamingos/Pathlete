@@ -19,9 +19,17 @@ angular.module('pathleteApp.services', [])
     })
   }
 
+  var login = function(){
+    return $http({
+      method: 'GET',
+      url: '/login'
+    })
+  }
+
   return {
     getInfo: getInfo,
-    logout: logout
+    logout: logout,
+    login: login
   };
 
 });
