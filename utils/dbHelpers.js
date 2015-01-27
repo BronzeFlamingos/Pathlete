@@ -21,14 +21,15 @@ module.exports = {
       done(err, profile._json.user);
     });
   },
-  getUserStats: function (user) {
+  getUserStats: function (req) {
     // var oath = {
     //   callbackURL: '/auth/fitbit/callback',
     //   token: user.token,
     //   tokenSecret: user.tokenSecret
     // };
-    request.get({url: "https://api.fitbit.com/1/user/" + user.id + "/activities/date/2015-01-23.json"},
-      function(err, response, body) {
+    console.log('req.session!!!!!!!!!!!!!!!!!', req.session);
+    request.get({url: "https://api.fitbit.com/1/user/-/activities/date/2015-01-23.json"},
+      function (err, res, body) {
         if (err) {
           console.log('error occurred');
         }
