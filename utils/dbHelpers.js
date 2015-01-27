@@ -28,15 +28,15 @@ module.exports = {
       callbackURL: 'http://localhost:1337/auth/fitbit/callback',
       token: user.token,
       tokenSecret: user.tokenSecret
-    }
+    };
     request.get({url: "https://api.fitbit.com/1/user/" + user.id + "/activities/date/2015-01-23.json",
       oath: oath},
       function(err, response, body) {
         if (err) {
-          console.log('error occurred')
+          console.log('error occurred');
         }
-      console.log('this is body', body)
-    })
+      console.log('this is body', body);
+    });
   },
   addUserStats: function () {
 
