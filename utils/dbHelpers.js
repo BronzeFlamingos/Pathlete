@@ -1,5 +1,6 @@
 var db = require('./db.js');
 var request = require('request');
+var helpers = require('./helpers.js');
 
 module.exports = {
   addUser: function (token, tokenSecret, profile, done){
@@ -21,23 +22,16 @@ module.exports = {
       done(err, profile._json.user);
     });
   },
-  getUserStats: function (req) {
-    // var oath = {
-    //   callbackURL: '/auth/fitbit/callback',
-    //   token: user.token,
-    //   tokenSecret: user.tokenSecret
-    // };
-    console.log('req.session!!!!!!!!!!!!!!!!!', req.session);
-    request.get({url: "https://api.fitbit.com/1/user/-/activities/date/2015-01-23.json"},
-      function (err, res, body) {
-        if (err) {
-          console.log('error occurred');
-        }
-      console.log('this is body', body);
+  getUserStats: function (userID) {
+    //takes user id and querys the firebase database
+    var userData = {};
+    db.child('users').child(userID).once('value', function (data) {
+      userData = helpers.extend(userData, data);
     });
+    return userData;
   },
-  addUserStats: function () {
-
+  addUserStats: function (userID, userStats) {
+    db.child('users').child(userID).update(userStats);
   }
 
 
