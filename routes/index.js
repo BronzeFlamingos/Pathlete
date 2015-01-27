@@ -5,6 +5,7 @@ var FitbitStrategy = require('passport-fitbit').Strategy;
 var keys = require('../keys.js');
 var db = require('../utils/db.js');
 var dbHelper = require('../utils/dbHelpers.js');
+var request = require('request')
 
 
 passport.serializeUser(function(user, done) {
@@ -39,18 +40,20 @@ router.get('/auth/fitbit', passport.authenticate('fitbit', {failureRedirect: '/l
 
 router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
   //this line will redirect to the proper url after we create it
-  res.redirect('/');
+  
+  // res.redirect('/stats');
 });
 
-router.get('/fitbitStats', function(req, res) {
-   request("https://api.fitbit.com/1/user/368XCD/activities/date/2015-01-23.json", 
-      function(err, response, body) {
-        if (err) {
-          console.log('error occurred')
-        }
-      console.log('this is body', body)
-      res.send(body);
-    });
-  });
+// router.get('/stats', function(req, res) {
+//    request(
+//     "https://api.fitbit.com/1/user/-/activities/date/2015-01-23.json", 
+//       function(err, response, body) {
+//         if (err) {
+//           console.log('error occurred')
+//         }
+//       console.log('this is body', body)
+//       res.send(body);
+//     });
+//   });
 
 module.exports = router;
