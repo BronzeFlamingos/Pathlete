@@ -17,6 +17,8 @@ app.controller('ProgressCtrl', function ($scope, $http, Info) {
     //user info
     $scope.userInfo
 
+    $scope.placeholderSize = 300;
+
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
