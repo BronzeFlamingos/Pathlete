@@ -17,9 +17,9 @@ app.config(function($routeProvider, $locationProvider) {
     templateUrl: 'views/main.html',
     controller: 'MainCtrl',
   })
-   .when('/about', {
-    templateUrl: 'views/about.html',
-    controller: 'MainCtrl',
+   .when('/progress', {
+    templateUrl: 'views/progress.html',
+    controller: 'ProgressCtrl',
   });
 
   $locationProvider.html5Mode({enabled: true, requireBase: false});
