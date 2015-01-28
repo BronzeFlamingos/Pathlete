@@ -7,7 +7,7 @@
  * # MainCtrl
  * Controller of the pathleteApp
  */
-app.controller('ProgressCtrl', function ($scope, $http, Info) {
+app.controller('ProgressCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -16,6 +16,8 @@ app.controller('ProgressCtrl', function ($scope, $http, Info) {
 
     //user info
     $scope.userInfo
+
+    Tool.toolbarOn();
 
     $scope.placeholderSize = 300;
 

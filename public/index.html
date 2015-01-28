@@ -23,8 +23,7 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <ul ng-controller="ToolbarCtrl" class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="/">Home</a></li>
+        <ul ng-controller="ToolbarCtrl" ng-show="showing" class="nav nav-pills pull-right">
           <li><a ng-href="/progress">Progress</a></li>
           <li ng-click="logout()"><a ng-href="#">Logout</a></li>
         </ul>

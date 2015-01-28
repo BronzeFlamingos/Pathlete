@@ -1,7 +1,7 @@
 angular.module('pathleteApp.services', [])
 
 .factory('Info', function ($http) {
-  // Your code here
+  // Your code here  
   var getInfo = function(){
     return $http({
       method: 'GET',
@@ -32,4 +32,28 @@ angular.module('pathleteApp.services', [])
     login: login
   };
 
-});
+})
+
+.factory('Tool', function($rootScope){
+  var toolbarShow = true;
+
+  var broadcast = function(state){
+    $rootScope.$broadcast('state.update', state);
+  }
+
+  var toolbarOn = function(){
+    toolbarShow = true;
+    broadcast({state: true});
+  }
+
+  var toolbarOff = function(){
+    toolbarShow = false;
+    broadcast({state: false});
+  }
+
+  return {
+    toolbarShow: toolbarShow,
+    toolbarOn: toolbarOn,
+    toolbarOff: toolbarOff
+  }
+})
