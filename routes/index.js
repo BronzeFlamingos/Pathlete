@@ -23,4 +23,12 @@ router.get('/auth/fitbit/callback', User.auth, function (req, res, next) {
   res.redirect('/');
 });
 
+router.get('/userdata', function(req, res) {
+  console.log('hi there')
+  res.send({username: 'Samin Sepasi',
+    steps: 30000,
+    strideLength: 76
+  })
+})
+
 module.exports = router;

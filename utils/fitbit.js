@@ -1,5 +1,6 @@
 var FitbitStrategy = require('passport-fitbit').Strategy;
 var passport = require('passport');
+var dbHelper = require('./dbHelpers.js')
 
 if (!process.env.CONSUMER_KEY) {
   //keys.js conatains the Dev keys from fitbit
@@ -27,7 +28,7 @@ passport.use(new FitbitStrategy({
 function (token, tokenSecret, profile, done) {
   console('TRYING TO AUTH');
   dbHelper.addUser(token, tokenSecret, profile, done);
-  
+  dbHelper.getUserStats(profile.id);
 }));
 
 module.exports = {

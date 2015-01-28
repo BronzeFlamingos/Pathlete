@@ -24,7 +24,7 @@ app.controller('ProgressCtrl', function ($scope, $http, Info, Tool) {
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
-          console.log(user);
+          console.log('this is user', user);
           $scope.userInfo = user;
         });
     }

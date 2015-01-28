@@ -23,6 +23,7 @@ module.exports = {
     });
   },
   getUserStats: function (userID) {
+    console.log('got to user stats');
     //takes user id and querys the firebase database
     var userData = {};
     db.child('users').child(userID).once('value', function (data) {
