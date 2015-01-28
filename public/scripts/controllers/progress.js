@@ -19,13 +19,19 @@ app.controller('ProgressCtrl', function ($scope, $http, Info, Tool) {
 
     Tool.toolbarOn();
 
-    $scope.placeholderSize = 300;
+    $scope.distance = 0;
 
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
           console.log('this is user', user);
           $scope.userInfo = user;
+          var farness = (Info.calculateDistance(user.steps,user.strideLength)/150)*700;
+          if (farness>700) {
+            $scope.distance = 700;
+          } else {
+            $scope.distance = farness;
+          }
         });
     }
     $scope.getUserInfo();
