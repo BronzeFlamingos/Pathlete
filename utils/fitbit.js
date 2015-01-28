@@ -25,15 +25,16 @@ passport.use(new FitbitStrategy({
   callbackURL: url
 },
 function (token, tokenSecret, profile, done) {
+  console('TRYING TO AUTH');
   dbHelper.addUser(token, tokenSecret, profile, done);
   
 }));
 
 module.exports = {
   auth: function (req, res, next) {
-    console.log('AUTHING!!!!!!!');
-    passport.authenticate('fitbit', { failureRedirect: '/login' });
-    next();
+    console.log(passport.authenticate);
+   // passport.authenticate('fitbit', passport.authenticate('fitbit', { failureRedirect: '/login' }));
+    
   },
   fetch: function () {}
 };
