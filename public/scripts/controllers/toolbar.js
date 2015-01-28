@@ -7,17 +7,22 @@
  * # MainCtrl
  * Controller of the pathleteApp toolbar
  */
-app.controller('ToolbarCtrl', function ($scope, $http, Info) {
+app.controller('ToolbarCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
-    //user info
-    $scope.thing='stuff';
+    $scope.showing = Tool.toolbarShow;
 
+    $scope.$on('state.update', function(thing, update){
+      $scope.showing = update.state;
+    });
+
+    //user info
     $scope.logout = function(){
+      console.log($scope.showing);
       Info.logout();
     }
   });
