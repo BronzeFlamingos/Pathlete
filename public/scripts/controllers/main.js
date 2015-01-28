@@ -15,7 +15,10 @@ app.controller('MainCtrl', function ($scope, $http, Info) {
     ];
 
     $scope.login = function(){
-      Info.login();
+      Info.login()
+      .then(function(info){
+        console.log(info);
+      });
     }
 
     //user info
