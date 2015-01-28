@@ -10,9 +10,6 @@ angular.module('pathleteApp.services', [])
     .then(function (resp) {
       return resp.data;
     })
-    .then(function (resp) {
-      return resp.data;
-    });
   };
 
   var logout = function(){

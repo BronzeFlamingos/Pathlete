@@ -29,11 +29,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
-
-
-
 
 app.use('/', routes);
 app.use('/auth/fitbit/callback', routes);
