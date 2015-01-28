@@ -12,6 +12,10 @@ angular.module('pathleteApp.services', [])
     })
   };
 
+  var calculateDistance = function(steps,length){
+    return (steps*length)/100000;
+  }
+
   var logout = function(){
     return $http({
       method: 'GET',
@@ -35,6 +39,7 @@ angular.module('pathleteApp.services', [])
 
   return {
     getInfo: getInfo,
+    calculateDistance: calculateDistance,
     logout: logout,
     login: login
   };
