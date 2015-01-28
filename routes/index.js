@@ -6,6 +6,7 @@ var User = require('../utils/fitbit.js');
 
 
 
+
 router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');

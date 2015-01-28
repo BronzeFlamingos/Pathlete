@@ -9,6 +9,9 @@ angular.module('pathleteApp.services', [])
     })
     .then(function (resp) {
       return resp.data;
+    })
+    .then(function (resp) {
+      return resp.data;
     });
   };
 
@@ -17,6 +20,9 @@ angular.module('pathleteApp.services', [])
       method: 'GET',
       url: '/logout'
     })
+    .then(function (resp) {
+      return resp.data;
+    });
   }
 
   var login = function(){
@@ -24,6 +30,10 @@ angular.module('pathleteApp.services', [])
       method: 'GET',
       url: '/login'
     })
+    .then(function (resp) {
+      return resp.data;
+    });
+
   }
 
   return {
