@@ -71,7 +71,36 @@ body {
   height:650px;
   overflow: hidden;
 }
+.achievement {
+  border: 1px solid gray;
+  padding: 4px;
+  margin: 4px;
+  margin-right: 10px;
+}
+#progress {
+ width: 220px;   
+ border: 1px solid black;
+ position: relative;
+ padding: 3px;
+ font-size: 10px;
+}
 
+#status {
+ position: absolute;   
+ left: 5%;
+}
+#goal{
+ position: absolute;   
+ left: 70%;
+
+}
+
+#bar {
+ height: 20px;
+ background-color: green;
+ width: 30%;
+}
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
@@ -90,4 +119,10 @@ body {
     border-bottom: 0;
   }
 }
+
+
+
+
+
+
 
