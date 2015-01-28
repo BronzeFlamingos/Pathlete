@@ -71,7 +71,11 @@ body {
   height:650px;
   overflow: hidden;
 }
-
+.achievement {
+  border: 1px solid gray;
+  padding: 4px;
+  margin: 4px;
+}
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   /* Remove the padding we set earlier */
@@ -90,4 +94,10 @@ body {
     border-bottom: 0;
   }
 }
+
+
+
+
+
+
 

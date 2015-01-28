@@ -20,6 +20,10 @@ app.config(function($routeProvider, $locationProvider) {
    .when('/progress', {
     templateUrl: 'views/progress.html',
     controller: 'ProgressCtrl',
+  })
+   .when('/achievements', {
+    templateUrl: 'views/achievements.html',
+    controller: 'AchievementsCtrl',
   });
 
   $locationProvider.html5Mode({enabled: true, requireBase: false});
