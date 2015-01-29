@@ -25,7 +25,8 @@
 ## Requirements
 
 - Node 0.10.x
-- D3.js
+- ExpressJS 4.0
+- AngularJS
 - Firebase
 - Passport-Fitbit
 - Fitbit-Node
