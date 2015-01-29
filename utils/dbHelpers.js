@@ -27,15 +27,12 @@ module.exports = {
   getUserStats: function (userID, callback) {
     console.log('got to user stats');
     //takes user id and querys the firebase database
-    db.child('users').child(userID).once('value', callback);
-// =======
-//     return db.child('users').child(userID);
+    return db.child('users').child(userID);
     
-// >>>>>>> got the fitbit data!
   },
 
   addUserStats: function (userID, userStats) {
-    db.child('users').child(userID).update(userStats);
+    db.child('users').child(userID).child('stats').update(JSON.parse(userStats));
   }
 
 

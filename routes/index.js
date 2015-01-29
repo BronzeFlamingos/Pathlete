@@ -34,21 +34,20 @@ router.get('/auth/fitbit', passport.authenticate('fitbit', { failureRedirect: '/
 router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
   //this line will redirect to the proper url after we create it
   //console.log('AFTER LOGIN',req.session);
-  fitbitControl.getStats(req,res,next);
-  res.redirect('/');
+  dbHelper.getUserStats('368XCD').once('value', function (data) {
+    var userdata = data.val();
+    req.session.token = userdata.token;
+    req.session.tokenSecret = userdata.tokenSecret;
+    fitbitControl.getStats(req,res,next);
+    res.redirect('/userdata');
+  });
 });
 
 router.get('/userdata', function(req, res) {
-  dbHelper.getUserStats('368XCD', function(data) {
+  dbHelper.getUserStats('368XCD').once('value', function(data) {
       console.log('this is dataval', data.val());
       res.send(data.val());
     });
 });
-  // console.log('hi there')
-  // res.send({username: 'Samin Sepasi',
-  //   steps: 30000,
-  //   strideLength: 76
-  // })
-
 
 module.exports = router;
