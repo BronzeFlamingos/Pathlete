@@ -39,7 +39,7 @@ router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRed
     req.session.token = userdata.token;
     req.session.tokenSecret = userdata.tokenSecret;
     fitbitControl.getStats(req,res,next);
-    res.redirect('/userdata');
+    res.redirect('/progress');
   });
 });
 
