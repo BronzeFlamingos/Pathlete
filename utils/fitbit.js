@@ -3,8 +3,6 @@ var FitbitApiClient = require('fitbit-node');
 var passport = require('passport');
 var db = require('./db.js');
 var dbHelper =require('./dbHelpers.js');
-var promise = require('bluebird');
-var Q = require('q');
 
 if (!process.env.CONSUMER_KEY) {
   //keys.js conatains the Dev keys from fitbit
@@ -21,6 +19,7 @@ module.exports = exports = {
       callbackURL: url
     }, function (token, tokenSecret, profile, done) {
           dbHelper.addUser(token, tokenSecret, profile, done);
+          done(null, profile._json.user);
         }),
   getStats: function (req, res, next) {
     var client = new FitbitApiClient(keys.consumerKey, keys.consumerSecret);

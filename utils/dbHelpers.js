@@ -1,7 +1,6 @@
 var db = require('./db.js');
 var request = require('request');
 var helpers = require('./helpers.js');
-var Q = require('q');
 
 module.exports = {
   addUser: function (token, tokenSecret, profile, done){
@@ -20,7 +19,7 @@ module.exports = {
       } else {
         db.child('users').child(profile.id).update({tokenSecret: tokenSecret, token: token});
       }
-      done(err, profile._json.user);
+      // done(err, profile._json.user);
     });
   },
   
