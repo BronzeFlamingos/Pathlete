@@ -1,11 +1,12 @@
 var db = require('./db.js');
 var request = require('request');
 var helpers = require('./helpers.js');
+var Q = require('q');
 
 module.exports = {
   addUser: function (token, tokenSecret, profile, done){
     var err = '';
-    console.log(profile);
+    // console.log(profile);
     db.child('users').child(profile.id).once('value', function (data) {
       if (data.val() === null){
         var user = {};
@@ -26,12 +27,12 @@ module.exports = {
   getUserStats: function (userID, callback) {
     console.log('got to user stats');
     //takes user id and querys the firebase database
-    var userData = {};
-    db.child('users').child(userID).once('value', callback);
+    return db.child('users').child(userID);
+    
   },
 
   addUserStats: function (userID, userStats) {
-    db.child('users').child(userID).update(userStats);
+    db.child('users').child(userID).child('stats').update(JSON.parse(userStats));
   }
 
 
