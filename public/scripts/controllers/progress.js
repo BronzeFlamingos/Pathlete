@@ -24,9 +24,8 @@ app.controller('ProgressCtrl', function ($scope, $http, Info, Tool) {
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
-          console.log('this is user', user);
           $scope.userInfo = user;
-          var farness = (Info.calculateDistance(user.steps,user.strideLength)/150)*700;
+          var farness = (user.stats.lifetime.total.distance/150)*700;
           if (farness>700) {
             $scope.distance = 700;
           } else {
