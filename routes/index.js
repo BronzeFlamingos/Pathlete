@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var request = require('request');
 var User = require('../utils/fitbit.js');
+var dbHelper = require('../utils/dbHelpers.js')
+
 
 router.get('/logout', function (req, res) {
   req.logout();
@@ -24,11 +26,16 @@ router.get('/auth/fitbit/callback', User.auth, function (req, res, next) {
 });
 
 router.get('/userdata', function(req, res) {
-  console.log('hi there')
-  res.send({username: 'Samin Sepasi',
-    steps: 30000,
-    strideLength: 76
-  })
-})
+  dbHelper.getUserStats('368XCD', function(data) {
+      console.log('this is dataval', data.val());
+      res.send(data.val());
+    });
+});
+  // console.log('hi there')
+  // res.send({username: 'Samin Sepasi',
+  //   steps: 30000,
+  //   strideLength: 76
+  // })
+
 
 module.exports = router;

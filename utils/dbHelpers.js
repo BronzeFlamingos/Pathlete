@@ -22,15 +22,14 @@ module.exports = {
       done(err, profile._json.user);
     });
   },
-  getUserStats: function (userID) {
+  
+  getUserStats: function (userID, callback) {
     console.log('got to user stats');
     //takes user id and querys the firebase database
     var userData = {};
-    db.child('users').child(userID).once('value', function (data) {
-      userData = helpers.extend(userData, data);
-    });
-    return userData;
+    db.child('users').child(userID).once('value', callback);
   },
+
   addUserStats: function (userID, userStats) {
     db.child('users').child(userID).update(userStats);
   }
