@@ -1,6 +1,10 @@
 var db = require('./db.js');
 var request = require('request');
 var helpers = require('./helpers.js');
+<<<<<<< HEAD
+=======
+// var Q = require('q');
+>>>>>>> updated documentation
 
 module.exports = {
   addUser: function (token, tokenSecret, profile, done){
