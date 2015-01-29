@@ -22,8 +22,8 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
-        <ul ng-controller="ToolbarCtrl" ng-show="showing" class="nav nav-pills pull-right">
+      <div class="header" ng-controller="ToolbarCtrl" ng-show="showing">
+        <ul class="nav nav-pills pull-right">
           <li><a ng-href="/progress">Progress</a></li>
           <li><a ng-href="/achievements">Achievements</a></li>
           <li><a ng-href="/logout" target="_self">Logout</a></li>

@@ -7,12 +7,14 @@
  * # MainCtrl
  * Controller of the pathleteApp
  */
-app.controller('MainCtrl', function ($scope, $http, Info) {
+app.controller('MainCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    Tool.toolbarOff();
 
     $scope.login = function(){
       Info.login()
