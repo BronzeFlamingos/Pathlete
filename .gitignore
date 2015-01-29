@@ -1,6 +1,7 @@
 node_modules
 
 .tmp
+.env
 
 bower_components
 *.log
