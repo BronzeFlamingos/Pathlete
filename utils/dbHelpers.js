@@ -7,7 +7,7 @@ module.exports = {
     var err = '';
     // console.log(profile);
     db.child('users').child(profile.id).once('value', function (data) {
-      if (data.val() === null){
+      if (data.val() === null) {
         var user = {};
         user.tokenSecret = tokenSecret;
         user.token = token;
