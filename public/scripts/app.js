@@ -21,6 +21,14 @@ app.config(function($routeProvider, $locationProvider) {
     templateUrl: 'views/progress.html',
     controller: 'ProgressCtrl',
   })
+    .when('/progress/everest', {
+     templateUrl: 'views/everest.html',
+     controller: 'EverestCtrl',
+   })
+   .when('/progress/lutetia', {
+    templateUrl: 'views/lutetia.html',
+    controller: 'LutetiaCtrl',
+  })
    .when('/achievements', {
     templateUrl: 'views/achievements.html',
     controller: 'AchievementsCtrl',
