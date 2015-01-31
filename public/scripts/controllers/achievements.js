@@ -14,7 +14,21 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
       'Karma'
     ];
 
+
+    $scope.userInfo
+
     Tool.toolbarOn();
 
+    $scope.distance = 0;
+
+    $scope.getUserInfo = function(){
+      Info.getInfo()
+        .then(function(user){
+          console.log(user);
+          $scope.userInfo = user;
+              
+        });
+    }
+    $scope.getUserInfo();
     
   });
