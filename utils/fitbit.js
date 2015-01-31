@@ -3,8 +3,6 @@ var FitbitApiClient = require('fitbit-node');
 var passport = require('passport');
 var dbHelper =require('./dbHelpers.js');
 
-
-
 module.exports = exports = {
   fitbitStrategy: new FitbitStrategy({
       consumerKey: process.env.CONSUMER_KEY,

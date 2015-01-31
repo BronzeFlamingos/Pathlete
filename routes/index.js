@@ -16,7 +16,6 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 
-
 router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
