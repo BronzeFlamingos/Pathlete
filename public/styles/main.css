@@ -75,12 +75,16 @@ body {
   padding: 4px;
   margin: 4px;
   margin-right: 10px;
+  position: relative;
+  height: 165px;
 }
 #progress {
- width: 220px;   
+ width: 97%;   
  border: 1px solid black;
  position: relative;
  padding: 3px;
+ position: absolute;
+ bottom: 5px;
  font-size: 10px;
 }
 
