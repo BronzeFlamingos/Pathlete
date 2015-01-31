@@ -1,12 +1,14 @@
 var express = require('express');
 var router = express.Router();
 var request = require('request');
-var User = require('../utils/fitbit.js');
 var dbHelper = require('../utils/dbHelpers.js');
 var passport = require('passport');
+var FitbitApiClient = require('fitbit-node');
 var fitbitControl = require('../utils/fitbit.js');
 
+
 passport.serializeUser(function(user, done) {
+  // console.log('serializeUser', arguments);
   done(null, user);
 });
 
@@ -21,31 +23,21 @@ router.get('/logout', function (req, res) {
 });
 
 router.get('/login', function (req, res, next){
-  // console.log('SESSION BEFORE LOGIN', req.session);
   res.redirect('/auth/fitbit');
 });
 
 passport.use(fitbitControl.fitbitStrategy);
-// router.route('/auth/fitbit').get(passport.authenticate('fitbit', { failureRedirect: '/login' }));
-
 router.get('/auth/fitbit', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req,res) {
 });
 
-router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req, res, next) {
-  //this line will redirect to the proper url after we create it
-  //console.log('AFTER LOGIN',req.session);
-  dbHelper.getUserStats('368XCD').once('value', function (data) {
-    var userdata = data.val();
-    req.session.token = userdata.token;
-    req.session.tokenSecret = userdata.tokenSecret;
-    fitbitControl.getStats(req,res,next);
-    res.redirect('/progress');
-  });
+
+router.get('/auth/fitbit/callback', passport.authenticate('fitbit', { failureRedirect: '/login' }), function (req,res) {
+  console.log(res.session);
+  res.redirect('/progress');
 });
 
 router.get('/userdata', function(req, res) {
-  dbHelper.getUserStats('368XCD').once('value', function(data) {
-      console.log('this is dataval', data.val());
+  dbHelper.getUserStats(req.user.encodedId).once('value', function(data) {
       res.send(data.val());
     });
 });
