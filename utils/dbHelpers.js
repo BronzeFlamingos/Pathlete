@@ -9,6 +9,7 @@ module.exports = {
     db.child('users').child(profile.id).once('value', function (data) {
       if (data.val() === null) {
         var user = {};
+        user.id = profile.id;
         user.tokenSecret = tokenSecret;
         user.token = token;
         user.name = profile._json.user.fullName;
@@ -19,12 +20,10 @@ module.exports = {
       } else {
         db.child('users').child(profile.id).update({tokenSecret: tokenSecret, token: token});
       }
-      // done(err, profile._json.user);
     });
   },
   
   getUserStats: function (userID, callback) {
-    console.log('got to user stats');
     //takes user id and querys the firebase database
     return db.child('users').child(userID);
     
