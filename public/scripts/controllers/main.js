@@ -19,7 +19,6 @@ app.controller('MainCtrl', function ($scope, $http, Info, Tool) {
     $scope.login = function(){
       Info.login()
       .then(function(info){
-        console.log(info);
       });
     }
 

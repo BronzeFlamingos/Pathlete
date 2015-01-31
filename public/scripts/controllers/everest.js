@@ -24,7 +24,6 @@ app.controller('EverestCtrl', function ($scope, $http, Info, Tool) {
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
-          console.log(user);
           $scope.userInfo = user;
           var farness = 525-((user.stats.lifetime.total.steps*7.5)/12129)*395;
           if (farness>700) {

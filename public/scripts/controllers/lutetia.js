@@ -24,7 +24,6 @@ app.controller('LutetiaCtrl', function ($scope, $http, Info, Tool) {
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
-          console.log(user);
           $scope.userInfo = user;
           var farness = (user.stats.lifetime.total.distance/150)*700;
           if (farness>700) {
