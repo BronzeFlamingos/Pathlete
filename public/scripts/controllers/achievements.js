@@ -84,9 +84,15 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
             image: "background-image: url(../images/america.jpg); background-size: contain; border: 1px solid black;"
           }
 
-          ]
+          ]          
+          
+          //get total stairs    
         });
     }
     $scope.getUserInfo();
-  
+
+
+
+
+    
   });
