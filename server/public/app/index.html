@@ -1,4 +1,4 @@
-<doctype html>
+<!doctype html>
 <html class="no-js">
   <head>
     <meta charset="utf-8">
@@ -8,7 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -22,18 +22,19 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header" ng-controller="ToolbarCtrl" ng-show="showing">
-        <ul class="nav nav-pills pull-right">
-          <li><a ng-href="/progress">Progress</a></li>
-          <li><a ng-href="/achievements">Achievements</a></li>
-          <li><a ng-href="/logout" target="_self">Logout</a></li>
+      <div class="header">
+        <ul ng-controller="ToolbarCtrl" class="nav nav-pills pull-right">
+          <li class="active"><a ng-href="#">Home</a></li>
+          <li><a ng-href="#">About</a></li>
+          <li ng-click="logout()"><a ng-href="#">Logout</a></li>
         </ul>
         <h3 class="text-muted">pathlete</h3>
       </div>
-      <div ng-view></div>
+
+      <div ng-include="'views/main.html'" ng-controller="MainCtrl"></div>
 
       <div class="footer">
-        <p></p>
+        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
       </div>
     </div>
 
@@ -45,10 +46,9 @@
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-57568644-2', 'auto');
+       ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
-
-     </script>
+    </script>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
@@ -57,21 +57,16 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/json3/lib/json3.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/progress.js"></script>
-        <script src="scripts/controllers/achievements.js"></script>
-        <script src="scripts/controllers/everest.js"></script>
-        <script src="scripts/controllers/lutetia.js"></script>
         <script src="scripts/controllers/toolbar.js"></script>
         <script src="scripts/services.js"></script>
         <!-- endbuild -->

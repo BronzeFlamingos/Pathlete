@@ -75,12 +75,17 @@ body {
   padding: 4px;
   margin: 4px;
   margin-right: 10px;
+  position: relative;
+  height: 165px;
+  width:220px;
 }
 #progress {
- width: 220px;   
+ width: 97%;   
  border: 1px solid black;
  position: relative;
  padding: 3px;
+ position: absolute;
+ bottom: 5px;
  font-size: 10px;
 }
 
@@ -116,6 +121,12 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+  .row{
+    width:1000px;
+  }
+  .row p{
+    font-size: 10px
   }
 }
 
