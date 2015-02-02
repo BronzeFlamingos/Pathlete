@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name pathleteApp.controller:MainCtrl
+ * @name pathleteApp.controller:LutetiaCtrl
  * @description
- * # MainCtrl
+ * # calculates distance user has traveled across lutetia and converts it into pixels
  * Controller of the pathleteApp
  */
 app.controller('LutetiaCtrl', function ($scope, $http, Info, Tool) {
@@ -17,8 +17,10 @@ app.controller('LutetiaCtrl', function ($scope, $http, Info, Tool) {
     //user info
     $scope.userInfo
 
+    //ensures toolbar is on
     Tool.toolbarOn();
 
+    //distance in pixels
     $scope.distance = 0;
 
     $scope.getUserInfo = function(){
