@@ -14,26 +14,24 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
       'Karma'
     ];
 
-
-
     Tool.toolbarOn();
-
-   
 
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
+          $scope.userInfo = user;
+          $scope.totalSteps = user.stats.lifetime.total.steps;
+          $scope.totalFlights = user.stats.lifetime.total.floors;
 
-          $scope.getPercent = function(goal, progress){
+          $scope.getPercent = function(goal, progress){  //used to set width of progress in bar
             if((progress/goal) < 1){
               return progress/goal * 100;
             } else{
               return 100;
             }
-          }
-          $scope.userInfo = user;
-          $scope.totalSteps = user.stats.lifetime.total.steps;
-          $scope.totalFlights = user.stats.lifetime.total.floors;
+          };
+
+          // $scope.backgroundimage="url('../images/GoldenGateBridge.jpg')";
 
           $scope.achievements = [{
             name: 'First Steps',
@@ -42,8 +40,8 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
             unit:'steps',
             width: $scope.getPercent(3400, $scope.totalSteps),
             // width: ($scope.totalFlights/2900)*100 < 100 ? ($scope.totalFlights/2900)*100 : 100,
-            current: $scope.totalSteps
-
+            current: $scope.totalSteps, 
+            backgroundimage: "url(../images/'GoldenGateBridge.jpg')"
           },
           {
             name: 'Bay to Breakers',
@@ -64,7 +62,7 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
           },
           {
             name: 'Hike the Burj Khalifa',
-            description:'Test ',
+            description:'Climb the worlds tallest building!',
             goal: 290,  
             unit: 'flights',
             width: $scope.getPercent(290, $scope.totalFlights),
@@ -73,7 +71,7 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
           {
             name: 'Everest Challenge',
             description:'Climb 2900 flights of stairs!',
-            goalSteps: 2900,
+            goal: 2900,
             unit: 'flights',
             width: $scope.getPercent(2900, $scope.totalFlights),
             current: $scope.totalFlights      
@@ -82,7 +80,7 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
           {
             name: 'Walk Across America',
             description:'Trek from SF to NY!',
-            goalSteps: 5146000,
+            goal: 5146000,
             unit: 'steps',
             width: $scope.getPercent(5146000, $scope.totalSteps),
             current: $scope.totalSteps
