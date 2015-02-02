@@ -85,10 +85,7 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
             width: $scope.getPercent(5146000, $scope.totalSteps),
             current: $scope.totalSteps
           }
-          ]
-
-          console.log($scope.achievements);
-          
+          ]          
           
           //get total stairs    
         });
