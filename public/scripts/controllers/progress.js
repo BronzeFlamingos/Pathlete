@@ -1,12 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name pathleteApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the pathleteApp
- */
 app.controller('ProgressCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
