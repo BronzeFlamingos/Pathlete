@@ -1,12 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name pathleteApp.controller:MainCtrl
- * @description
- * # MainCtrl
- * Controller of the pathleteApp
- */
 app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
@@ -30,8 +23,6 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
               return 100;
             }
           };
-
-          // $scope.backgroundimage="url('../images/GoldenGateBridge.jpg')";
 
           $scope.achievements = [{
             name: 'First Steps',

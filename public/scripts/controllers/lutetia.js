@@ -7,6 +7,7 @@
  * # calculates distance user has traveled across lutetia and converts it into pixels
  * Controller of the pathleteApp
  */
+
 app.controller('LutetiaCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

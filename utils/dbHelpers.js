@@ -1,11 +1,10 @@
 var db = require('./db.js');
 var request = require('request');
-var helpers = require('./helpers.js');
 
 module.exports = {
   addUser: function (token, tokenSecret, profile, done){
     var err = '';
-    // console.log(profile);
+    //Add the user's profile info to the db
     db.child('users').child(profile.id).once('value', function (data) {
       if (data.val() === null) {
         var user = {};
@@ -16,22 +15,24 @@ module.exports = {
         user.strideRunning = profile._json.user.strideLengthRunning;
         user.strideWalking = profile._json.user.strideLengthWalking;
         user.units = profile._json.user.distanceUnit;
+        //if user is not already in the db
         db.child('users').child(profile.id).set(user);
       } else {
+        //if user is already in db, update their profile info
         db.child('users').child(profile.id).update({tokenSecret: tokenSecret, token: token});
       }
     });
   },
   
   getUserStats: function (userID, callback) {
-    //takes user id and querys the firebase database
+    //take user id and query the firebase database
     return db.child('users').child(userID);
     
   },
-
+  
+  //add user activity, such as stairs and steps to their profile in the db
   addUserStats: function (userID, userStats) {
     db.child('users').child(userID).child('stats').update(JSON.parse(userStats));
   }
-
 
 };

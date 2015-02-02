@@ -7,6 +7,7 @@
  * # calculates height user has traveled up everest and converts it into pixels
  * Info and Tool are defined in services.js 
  */
+ 
 app.controller('EverestCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

@@ -9,6 +9,8 @@
  * enusres toolbar is off for login page
  */
 app.controller('MainCtrl', function ($scope, $http , Tool) {
+
+app.controller('MainCtrl', function ($scope, $http, Info, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
