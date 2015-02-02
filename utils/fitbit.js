@@ -8,9 +8,9 @@ module.exports = exports = {
       consumerKey: process.env.CONSUMER_KEY,
       consumerSecret: process.env.CONSUMER_SECRET,
       callbackURL: '/auth/fitbit/callback',
+      userAuthorizationURL: 'https://www.fitbit.com/oauth/authorize'
     }, function (token, tokenSecret, profile, done) {   
       //after oath login call this success handler
-      userAuthorizationURL:'https://www.fitbit.com/oauth/authorize'
           //add user to db
           dbHelper.addUser(token, tokenSecret, profile);  
           //this line waits for 26 to finish
