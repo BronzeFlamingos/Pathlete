@@ -23,7 +23,7 @@ Pathlete is a fun data visualization tool that will show trends in your movement
 1. Clone Repo
 2. [Install Dependencies](#installing-dependencies)
 3. Rename `example.env` to `.env`
-4. Sign up for a (fitbit dev account)[https://dev.fitbit.com] to obtain consumer key & consumer secret
+4. Sign up for a [fitbit dev account](https://dev.fitbit.com) to obtain consumer key & consumer secret
 5. Update .env with consumer key and secret from your created fitbit dev account
 6. The repo currently uses our own Firebase link as the db. To create your own db, simply change the link in utils/db.js as you see fit to point to your own Firebase or other db. 
 7. To run locally: From root directory, run `node bin/www`
@@ -36,10 +36,10 @@ Pathlete is a fun data visualization tool that will show trends in your movement
 - AngularJS
 - Firebase
 - Passport-Fitbit
-(Passport-Fitbit)[https://github.com/jaredhanson/passport-fitbit] is a library that abstracts the oAuth process for the (Fitbit API)[https://wiki.fitbit.com/display/API/Fitbit+API]. 
+[Passport-Fitbit](https://github.com/jaredhanson/passport-fitbit) is a library that abstracts the oAuth process for the (Fitbit API)[https://wiki.fitbit.com/display/API/Fitbit+API]. 
 - Fitbit-Node
-(Fitbit-Node)[https://www.npmjs.com/package/fitbit-node] is an npm module that abstracts the data fetching
-process for the (Fitbit Resource Access API)[https://wiki.fitbit.com/display/API/Fitbit+Resource+Access+API]. 
+[Fitbit-Node](https://www.npmjs.com/package/fitbit-node) is an npm module that abstracts the data fetching
+process for the [Fitbit Resource Access API](https://wiki.fitbit.com/display/API/Fitbit+Resource+Access+API). 
 
 ## Development
 
