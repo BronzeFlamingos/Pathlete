@@ -71,7 +71,7 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
             unit: 'flights',
             width: $scope.getPercent(1200, $scope.totalFlights),
             current: $scope.totalFlights,
-            image: "background-image: url(../images/Everest_background.jpg); background-size: contain; border: 1px solid black;"     
+            image: "background-image: url(../images/Everest_background.jpg); background-size: contain; border: 1px solid black;"    
 
           },
           {
