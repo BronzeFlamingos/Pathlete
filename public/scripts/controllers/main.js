@@ -6,29 +6,16 @@
  * @description
  * # MainCtrl
  * Controller of the pathleteApp
+ * enusres toolbar is off for login page
  */
-app.controller('MainCtrl', function ($scope, $http, Info, Tool) {
+app.controller('MainCtrl', function ($scope, $http , Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
 
+    //turns toolbar off
     Tool.toolbarOff();
 
-    $scope.login = function(){
-      Info.login()
-      .then(function(info){
-      });
-    }
-
-    //user info
-    $scope.userInfo
-
-    $scope.getUserInfo = function(){
-      Info.getInfo()
-        .then(function(user){
-          $scope.userInfo = user;
-        });
-    }
   });
