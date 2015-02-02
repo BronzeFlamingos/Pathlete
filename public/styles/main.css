@@ -95,7 +95,7 @@ body {
 }
 #goal{
  position: absolute;   
- left: 70%;
+ left: 65%;
 
 }
 
@@ -126,8 +126,12 @@ body {
     width:1000px;
   }
   .row p{
-    font-size: 10px
+    font-size: 10px;
   }
+
+}
+.achievement p{
+  font-size: 12px;
 }
 
 
