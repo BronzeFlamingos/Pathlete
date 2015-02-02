@@ -71,9 +71,9 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
           {
             name: 'Everest Challenge',
             description:'Climb 2900 flights of stairs!',
-            goal: 2900,
+            goal: 1200,
             unit: 'flights',
-            width: $scope.getPercent(2900, $scope.totalFlights),
+            width: $scope.getPercent(1200, $scope.totalFlights),
             current: $scope.totalFlights      
 
           },

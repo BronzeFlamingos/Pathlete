@@ -29,6 +29,10 @@ app.config(function($routeProvider, $locationProvider) {
     templateUrl: 'views/lutetia.html',
     controller: 'LutetiaCtrl',
   })
+    .when('/progress/usa', {
+    templateUrl: 'views/usa.html',
+    controller: 'UsaCtrl',
+  })
    .when('/achievements', {
     templateUrl: 'views/achievements.html',
     controller: 'AchievementsCtrl',
