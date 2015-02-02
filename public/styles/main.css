@@ -51,6 +51,20 @@ body {
   padding: 14px 24px;
 }
 
+h5 {
+  font-size: 18px;
+  color: #777;
+  padding: 12px;
+}
+
+.proglist li {
+  list-style-type: none;
+}
+
+.proglist a {
+  text-decoration: none;
+}
+
 /* Supporting marketing content */
 .marketing {
   margin: 40px 0;
