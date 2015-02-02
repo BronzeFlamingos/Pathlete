@@ -35,11 +35,12 @@ Pathlete is a fun data visualization tool that will show trends in your movement
 - ExpressJS 4.0
 - AngularJS
 - Firebase
+- Mocha
+- Chai
 - Passport-Fitbit
-[Passport-Fitbit](https://github.com/jaredhanson/passport-fitbit) is a library that abstracts the oAuth process for the (Fitbit API)[https://wiki.fitbit.com/display/API/Fitbit+API]. 
+  - [Passport-Fitbit](https://github.com/jaredhanson/passport-fitbit) is a library that abstracts the oAuth process for the [Fitbit API](https://wiki.fitbit.com/display/API/Fitbit+API). 
 - Fitbit-Node
-[Fitbit-Node](https://www.npmjs.com/package/fitbit-node) is an npm module that abstracts the data fetching
-process for the [Fitbit Resource Access API](https://wiki.fitbit.com/display/API/Fitbit+Resource+Access+API). 
+  -[Fitbit-Node](https://www.npmjs.com/package/fitbit-node) is an npm module that abstracts the data fetching process for the [Fitbit Resource Access API](https://wiki.fitbit.com/display/API/Fitbit+Resource+Access+API). 
 
 ## Development
 
