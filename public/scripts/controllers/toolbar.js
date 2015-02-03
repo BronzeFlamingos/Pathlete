@@ -8,9 +8,8 @@
  * Controller of the pathleteApp toolbar
  * sets the toolbar ng-show status to true or false
  */
-app.controller('ToolbarCtrl', function ($scope, $http, $location, Tool) {
 
-app.controller('ToolbarCtrl', function ($scope, $http, $location, Info, Tool) {
+app.controller('ToolbarCtrl', function ($scope, $http, $location, Tool) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

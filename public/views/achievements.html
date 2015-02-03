@@ -1,6 +1,6 @@
 <!-- ng-repeat -->
 <div class="ach-list row">
-	<div ng-repeat='achievement in achievements' class="achievement col-xs-6 col-sm-3">
+	<div ng-repeat='achievement in achievements' class="achievement col-xs-6 col-sm-3" style="{{achievement.image}}">
 		<h2>{{achievement.name}}</h2>
 		<p>{{achievement.description}}</p>
 		<div id="progress">

@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 var session = require('express-session');
 
 
@@ -36,7 +35,6 @@ app.use(passport.session());
 
 app.use('/', routes);
 app.use('/auth/fitbit/callback', routes);
-app.use('/users', users);
 
 module.exports = app;
 console.log('Express listening on: ');
