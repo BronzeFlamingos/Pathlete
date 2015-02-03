@@ -27,6 +27,7 @@ Pathlete is a fun data visualization tool that will show trends in your movement
 5. Update .env with consumer key and secret from your created fitbit dev account
 6. The repo currently uses our own Firebase link as the db. To create your own db, simply change the link in utils/db.js as you see fit to point to your own Firebase or other db. 
 7. To run locally: From root directory, run `node bin/www`
+8. To run tests, run `npm test` from root directory
 
 
 ## Requirements
