@@ -15,6 +15,9 @@ app.controller('AchievementsCtrl', function ($scope, $http, Info, Tool) {
           $scope.userInfo = user;
           $scope.totalSteps = user.stats.lifetime.total.steps;
           $scope.totalFlights = user.stats.lifetime.total.floors;
+          if(!$scope.totalFlights){
+            $scope.totalFlights = 0;
+          }
 
           $scope.getPercent = function(goal, progress){  //used to set width of progress in bar
             if((progress/goal) < 1){
