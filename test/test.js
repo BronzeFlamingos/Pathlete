@@ -1,5 +1,4 @@
 var expect = require('chai').expect;
-var request = require('request');
 var db = require('../utils/db.js');
 var helpers = require('../utils/dbHelpers.js');
 
