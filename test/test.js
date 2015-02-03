@@ -63,23 +63,4 @@ describe('tests the dbHelper functions', function (){
   db.child('users').child(user.id).remove(onComplete);
 });
 
-describe('tests the server routes', function () {
-  it ('on login redirects you to the fitbit auth workflow', function (done) {
-    request('http://localhost:1337/login', function (err, res, body) {
-      console.log(err);
-      console.log(res);
-      console.log(body);
-      expect(res).to.equal(302);
-      done();
-      
-    });
-  });
 
-  it ('', function () {});
-
-  it ('', function () {});
-
-  it ('', function () {});
-
-  it ('', function () {});
-});
