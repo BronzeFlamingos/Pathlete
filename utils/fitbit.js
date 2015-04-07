@@ -10,10 +10,7 @@ module.exports = exports = {
       callbackURL: '/auth/fitbit/callback',
       userAuthorizationURL: 'https://www.fitbit.com/oauth/authenticate'
     }, function (token, tokenSecret, profile, done) {
-      //after oath login call this success handler
-          //add user to db
           dbHelper.findUser(profile).then(function(data){
-            console.log('promise worked!',data);
             if (data === null){
               return dbHelper.addUser(profile)
             } else{
@@ -21,11 +18,8 @@ module.exports = exports = {
             }
 
           }).then(function(data){
-            //this line waits for 26 to finish
 
             exports.getStats(profile.id, token, tokenSecret).then(function() {
-              //done tells the program you are done and want to go to the next step
-              console.log('sending done!')
 
             });
           }).done(function(){

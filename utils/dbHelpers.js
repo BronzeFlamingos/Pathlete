@@ -14,10 +14,8 @@ module.exports = {
       user.strideRunning = profile._json.user.strideLengthRunning;
       user.strideWalking = profile._json.user.strideLengthWalking;
       user.units = profile._json.user.distanceUnit;
-      //if user is not already in the db
       db.child('users').child(profile.id).set(user, function(err){
         if (err === null){
-          console.log('added')
           deferred.resolve(user);
         } else {
           deferred.reject(err);
@@ -27,20 +25,8 @@ module.exports = {
   },
   findUser: function (profile){
     var deferred = Q.defer();
-    //Add the user's profile info to the db
-    console.log('finding user', profile.id);
     db.child('users').child(profile.id).once('value', function (data) {
       deferred.resolve(data.val());
-      // if (data.val() === null) {
-      //   var user = {};
-      //   user.id = profile.id;
-      //   user.name = profile._json.user.fullName;
-      //   user.strideRunning = profile._json.user.strideLengthRunning;
-      //   user.strideWalking = profile._json.user.strideLengthWalking;
-      //   user.units = profile._json.user.distanceUnit;
-      //   //if user is not already in the db
-      //   db.child('users').child(profile.id).set(user);
-      // }
     },function(err){
       deferred.reject(err);
     });
