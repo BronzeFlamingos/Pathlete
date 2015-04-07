@@ -24,7 +24,6 @@ app.controller('UsaCtrl', function ($scope, $http, Info, Tool) {
     $scope.getUserInfo = function(){
       Info.getInfo()
         .then(function(user){
-          console.log(user);
           $scope.userInfo = user;
           var farness = 50 + (user.stats.lifetime.total.distance/4828)*650;
           if (farness>650) {
