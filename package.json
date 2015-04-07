@@ -19,6 +19,7 @@
     "morgan": "~1.5.1",
     "passport": "^0.2.1",
     "passport-fitbit": "^0.1.2",
+    "q": "^1.2.0",
     "serve-favicon": "~2.2.0"
   }
 }
